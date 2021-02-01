@@ -1,0 +1,254 @@
+.title {
+  font-size: 4rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: $clr-red;
+  letter-spacing: 0.2rem;
+}
+
+.balance {
+  margin-top: 10rem;
+  display: flex;
+  justify-content: space-around;
+
+  @include for-size(phone-only) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  &__description {
+    @include for-size(phone-only) {
+      margin-bottom: 3rem;
+    }
+  }
+
+  &__title {
+    font-size: 3.5rem;
+    color: $clr-gray-light;
+    font-weight: 400;
+  }
+
+  &__amount {
+    font-size: 3rem;
+    color: $clr-gray-light;
+    word-break: break-all;
+  }
+
+  &__graphic {
+    width: 12rem;
+    height: 12rem;
+  }
+
+  &__graphic {
+    width: 13rem;
+    height: 13rem;
+    margin-left: 1.5rem;
+    border-radius: 50%;
+    background: $clr-gray-light;
+    position: relative;
+
+    @for $i from 0 through 100 {
+      $deg: 90deg + (3.6 * $i);
+
+      &--#{$i} {
+        $direction: if($i < 51, right, left);
+        $color: if($i < 51, $clr-gray-light, $clr-red);
+
+        background: linear-gradient(
+            to #{$direction},
+            #{$color} 50%,
+            transparent 50%
+          ),
+          linear-gradient(#{$deg}, $clr-red 50%, $clr-gray-light 50%);
+      }
+    }
+
+    &::after {
+      content: '';
+      width: 9.5rem;
+      height: 9.5rem;
+      border-radius: 50%;
+      background: $clr-dark;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+.income-and-expenses {
+  margin-top: 10rem;
+  display: flex;
+  justify-content: space-around;
+
+  @include for-size(phone-only) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 6rem;
+  }
+
+  @include for-size(tablet-landscape-up) {
+    margin-bottom: 0;
+  }
+
+  &__income {
+    color: $clr-green;
+  }
+
+  &__expenses {
+    color: $clr-red;
+
+    @include for-size(phone-only) {
+      margin-top: 3rem;
+    }
+  }
+
+  &__title,
+  &__amount {
+    font-size: 2.5rem;
+    font-weight: 400;
+    word-break: break-word;
+  }
+}
+
+.inputs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6rem;
+  margin-top: 3rem;
+
+  @include for-size(phone-only) {
+    display: flex;
+    flex-direction: column;
+    margin-top: 6rem;
+  }
+
+  @include for-size(tablet-landscape-up) {
+    gap: 3rem;
+  }
+
+  &__income,
+  &__expenses {
+    width: 100%;
+  }
+
+  &__income {
+    .inputs__text:focus,
+    .inputs__amount:focus {
+      border-bottom: solid 0.2rem $clr-green;
+    }
+  }
+
+  &__expenses {
+    .inputs__text:focus,
+    .inputs__amount:focus {
+      border-bottom: solid 0.2rem $clr-red;
+    }
+  }
+
+  &__text,
+  &__amount {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border: none;
+    background: none;
+    outline: none;
+    color: $clr-gray-light;
+    border-bottom: solid 0.2rem $clr-gray;
+    margin-bottom: 2rem;
+    transition: all 0.4s;
+    appearance: none;
+  }
+
+  &__btn {
+    padding: 0.8rem 1.3rem;
+    border-radius: 0.4rem;
+    border: none;
+    outline: none;
+    color: $clr-gray-light;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s;
+
+    &--income {
+      background: $clr-green;
+    }
+
+    &--expense {
+      background: $clr-red;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+.history {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+  margin-top: 10rem;
+  height: 40rem;
+  overflow-y: scroll;
+
+  @include for-size(phone-only) {
+    display: flex;
+    flex-direction: column;
+    margin-top: 6rem;
+  }
+
+  &__title {
+    font-size: 1.8rem;
+    color: $clr-gray-light;
+    font-weight: 400;
+    letter-spacing: 0.2rem;
+  }
+
+  &__push-container {
+    display: flex;
+    margin-bottom: 1rem;
+  }
+
+  &__push-descriptions {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    margin-right: 1rem;
+    padding: 0.5rem 0.8rem;
+    border-radius: 0.4rem;
+
+    &--income {
+      background: $clr-green;
+    }
+
+    &--expense {
+      background: $clr-red;
+    }
+  }
+
+  &__push-text,
+  &__push-amount {
+    font-size: 1.4rem;
+    color: $clr-gray-light;
+    font-weight: 600;
+  }
+
+  &__push-text {
+    word-break: break-word;
+  }
+
+  &__push-amount {
+    margin-left: 1rem;
+  }
+
+  &__remove-icon {
+    font-size: 1.6rem;
+    color: $clr-red;
+    cursor: pointer;
+    padding-top: 0.8rem;
+  }
+}

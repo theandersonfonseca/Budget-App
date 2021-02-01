@@ -1,0 +1,105 @@
+//Variables
+$clr-green: #5a9b67;
+$clr-red: #cf5856;
+$clr-dark-red: #d4403e;
+$clr-dark: #333;
+$clr-gray: #928d8d;
+$clr-gray-light: #eee;
+
+//Mixins Breakpoints
+@mixin for-size($range) {
+  $phone-upper-boundary: 600px;
+  $tablet-portrait-upper-boundary: 900px;
+  $tablet-landscape-upper-boundary: 1200px;
+  $desktop-upper-boundary: 1800px;
+
+  @if $range == phone-only {
+    @media (max-width: #{$phone-upper-boundary - 1}) {
+      @content;
+    }
+  } @else if $range == tablet-portrait-up {
+    @media (min-width: $phone-upper-boundary) {
+      @content;
+    }
+  } @else if $range == tablet-landscape-up {
+    @media (min-width: $tablet-portrait-upper-boundary) {
+      @content;
+    }
+  } @else if $range == desktop-up {
+    @media (min-width: $tablet-landscape-upper-boundary) {
+      @content;
+    }
+  } @else if $range == big-desktop-up {
+    @media (min-width: $desktop-upper-boundary) {
+      @content;
+    }
+  }
+}
+
+//Outhers Mixins
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+//Reset
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-size: 62.5%;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  text-rendering: optimizeSpeed;
+  scroll-behavior: smooth;
+  line-height: 1.5;
+  font-family: 'Open sans', sans-serif;
+}
+
+img,
+span,
+input,
+button,
+i {
+  display: block;
+}
+
+img {
+  width: 100%;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+input,
+button {
+  font-family: 'Open sans', sans-serif;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  appearance: none;
+}
+
+//Geral
+::-webkit-scrollbar-track {
+  background-color: $clr-dark;
+}
+::-webkit-scrollbar {
+  width: 0.5rem;
+  background: $clr-dark;
+}
+::-webkit-scrollbar-thumb {
+  background: $clr-gray;
+}

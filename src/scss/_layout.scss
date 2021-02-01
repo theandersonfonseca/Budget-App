@@ -1,0 +1,52 @@
+body {
+  background: $clr-green;
+  padding: 3rem 0;
+  height: auto;
+  @include flex-center;
+
+  @include for-size(tablet-landscape-up) {
+    height: 100vh;
+    padding: 0;
+  }
+}
+
+.container {
+  display: block;
+  width: 75%;
+  width: 95%;
+  height: 80%;
+  padding: 4rem;
+  background: $clr-dark;
+  box-shadow: 0 0 0.3rem 0.2rem $clr-dark;
+  border-radius: 0.4rem;
+
+  @include for-size(phone-only) {
+    padding: 3rem;
+  }
+
+  @include for-size(tablet-landscape-up) {
+    display: grid;
+    grid-template-columns: 40% 60%;
+  }
+
+  @include for-size(desktop-up) {
+    width: 80%;
+  }
+}
+
+.first-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  @include for-size(tablet-landscape-up) {
+    margin-bottom: 0;
+  }
+}
+
+.second-wrapper {
+  margin-left: 0;
+
+  @include for-size(tablet-landscape-up) {
+    margin-left: 5rem;
+  }
+}
