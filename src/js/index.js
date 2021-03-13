@@ -1,5 +1,5 @@
-import { Budget } from './budget-class.js';
-import { el } from './dom-elements.js';
+import Budget from './budget-class.js';
+import el from './dom-elements.js';
 
 const newBudget = new Budget(
   el.incomeDisplay,

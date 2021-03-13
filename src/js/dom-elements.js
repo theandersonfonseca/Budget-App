@@ -1,4 +1,4 @@
-export const el = {
+export default {
   inputNameIncome: document.querySelector('[data-inputNameIncome]'),
   inputTransactionIncome: document.querySelector(
     '[data-inputTransactionIncome]'

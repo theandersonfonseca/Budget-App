@@ -1,6 +1,6 @@
-import { convertToMoney } from './utils.js';
+import convertToMoney from './utils.js';
 
-export class Budget {
+export default class Budget {
   constructor(
     incomeDisplay,
     expenseDisplay,
@@ -103,7 +103,7 @@ export class Budget {
                           ${convertToMoney(amount)}
                         </span>
                       </div>
-  
+
                       <i class="fas fa-trash history__remove-icon" data-remove="${incomeOrExpense}"></i>
                       `;
 
