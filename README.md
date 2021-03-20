@@ -1,14 +1,7 @@
 # Budget-App
 
-Aplicação de Controle de Orçamento com SASS e JS puro, inspirado em um tutorial do youtube onde o mesmo app é feito com React:
-https://www.youtube.com/watch?v=fDffQYs2WB0
+Aplicação de Controle de Orçamento com SASS e JS puro, o usuário pode registrar seus rendimentos e suas despesas, que serão adicionados aos respectivos históricos, automaticamente serão calculados os totais de cada um, bem como o saldo e um gráfico que mostra a relação dos dois. Os históricos e todos os outros dados ficam salvos no local storage.
 
-- [x] Formatar números dos inputs para moeda local
-- [x] Salvar dados no localStorage e inseri-los quando a página for atualizada ou iniciada
-- [x] Calcular relação entre rendas e despesas com o total e exibir como gráfico circular
+O layout e as funcionalidades gerais do projeto foram inspiradas em um [tutorial do youtube](https://www.youtube.com/watch?v=fDffQYs2WB0) onde o mesmo app é feito com React.
 
-![](src/img/print1.png)
-![](src/img/print2.png)
-![](src/img/print3.png)
-![](src/img/print4.png) 
-![](src/img/print5.png)
+![](src/images/budget-app.gif)
