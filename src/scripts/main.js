@@ -62,14 +62,18 @@ const handleIncomeOrExpense = (incomeOrExpense) => {
   );
 };
 
-el.submitInputsBtn.forEach((btn) =>
-  btn.addEventListener('click', (e) => {
-    const incomeOrExpense = e.target.dataset.btn;
-    e.preventDefault();
-    if (!isInputValid(incomeOrExpense)) return;
-    handleIncomeOrExpense(incomeOrExpense);
-    cleanInputs();
-  })
-);
+const init = (() => {
+  el.submitInputsBtn.forEach((btn) =>
+    btn.addEventListener('click', (e) => {
+      const incomeOrExpense = e.target.dataset.btn;
+      e.preventDefault();
+      if (!isInputValid(incomeOrExpense)) return;
+      handleIncomeOrExpense(incomeOrExpense);
+      cleanInputs();
+    })
+  );
 
-newBudget.updateDataFromLocalStorage();
+  newBudget.updateDataFromLocalStorage();
+})();
+
+export default { init };
